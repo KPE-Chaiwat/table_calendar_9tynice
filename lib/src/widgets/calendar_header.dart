@@ -39,8 +39,11 @@ class CalendarHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final text = headerStyle.titleTextFormatter?.call(focusedMonth, locale) ??
-        DateFormat.yMMMM(locale).format(focusedMonth);
+    // final text = headerStyle.titleTextFormatter?.call(focusedMonth, locale) ??
+    //     DateFormat.yMMMM(locale).format(focusedMonth);
+        final text = headerStyle.titleTextFormatter?.call(focusedMonth, locale) ??
+        DateFormat.yMMM(locale).format(focusedMonth);
+
 
     return Container(
       decoration: headerStyle.decoration,
@@ -62,7 +65,7 @@ class CalendarHeader extends StatelessWidget {
                   onTap: onHeaderTap,
                   onLongPress: onHeaderLongPress,
                   child: Text(
-                   "Xiatong",// text,
+                   text, //__________________ edit here
                     style: headerStyle.titleTextStyle,
                     textAlign: headerStyle.titleCentered
                         ? TextAlign.center
