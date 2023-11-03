@@ -204,6 +204,9 @@ class TableCalendar<T> extends StatefulWidget {
   /// Called when the calendar is created. Exposes its PageController.
   final void Function(PageController pageController)? onCalendarCreated;
 
+  /// สร้างเอง ------
+  final String? headerTitle;
+
   /// Creates a `TableCalendar` widget.
   TableCalendar({
     Key? key,
@@ -242,6 +245,7 @@ class TableCalendar<T> extends StatefulWidget {
       swipeDetectionBehavior: SwipeDetectionBehavior.continuousDistinct,
     ),
     this.headerStyle = const HeaderStyle(),
+    this.headerTitle,
     this.daysOfWeekStyle = const DaysOfWeekStyle(),
     this.calendarStyle = const CalendarStyle(),
     this.calendarBuilders = const CalendarBuilders(),
@@ -455,6 +459,7 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
             builder: (context, value, _) {
               return CalendarHeader(
                 headerTitleBuilder: widget.calendarBuilders.headerTitleBuilder,
+                headerTitle:widget.headerTitle,
                 focusedMonth: value,
                 onLeftChevronTap: _onLeftChevronTap,
                 onRightChevronTap: _onRightChevronTap,
